@@ -7,32 +7,17 @@ const [todos, setTodos] = useState([])
     try {
       const response = await fetch("http://localhost:5007/todos")
    const jasonData = await response.json();
-  //  console.log(jasonData);
    setTodos(jasonData)
     } catch (err) {
       console.log(err);
     }
   }
 
-
-  // const deleteTodo = async id => {
-  //   try {
-  //     const deleteTodo = await fetch(`http://localhost:5007/todos/${id}`, {
-  //       method: "DELETE"
-  //     });
-  //       console.log(deleteTodo);
-  //     // setTodos(todos.filter(todo => todo.todo_id !== id));
-  //   } catch (err) {
-  //     console.error(err.message);
-  //   }
-  // };
-
   const deleteTodo = async (id) =>{
     try {
       const delTodo = await fetch(`http://localhost:5007/todos/${id}`,{
         method:"DELETE"
       })
-      // console.log(delTodo);
       setTodos(todos.filter(todo => todo.todo_id !== id))
     } catch (err) {
       console.log(err);
@@ -43,7 +28,6 @@ const [todos, setTodos] = useState([])
   },[])
   return (
     <>
-    {/* <h1>List Todo </h1> */}
     <table class="table mt-5 text-center">
     <thead>
       <tr>
@@ -53,11 +37,6 @@ const [todos, setTodos] = useState([])
       </tr>
     </thead>
     <tbody>
-      {/* <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr> */}
 { todos.map((item) =>(
   <tr>
     <td>{item.description}</td>
