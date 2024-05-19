@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 const EditTodo = ({todo}) => {
-    // console.log(todo);
 
 const [description , setDescription] = useState(todo.description)
 

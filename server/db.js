@@ -6,6 +6,5 @@ const pool = new Pool({
     port:5432,
     database:"perntodo"
 })
-// export default pool
 
 module.exports = pool
